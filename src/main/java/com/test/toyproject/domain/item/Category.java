@@ -1,24 +1,5 @@
 package com.test.toyproject.domain.item;
 
-import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-
-import static jakarta.persistence.FetchType.LAZY;
-
-@Entity
-@Getter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Category {
-
-    @Id
-    @GeneratedValue
-    private Long categoryNo;
-
-    private String categoryName;
-
-    @ManyToOne(fetch = LAZY)
-    @JoinColumn(name="product_no")
-    private Product product;
+public enum Category {
+    디지털, 가구, 의류, 가전, 도서, 스포츠, 취미, 기타
 }
