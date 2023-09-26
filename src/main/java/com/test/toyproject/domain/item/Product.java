@@ -1,10 +1,14 @@
 package com.test.toyproject.domain.item;
 
 import jakarta.persistence.*;
+import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Product {
 
     @Id @GeneratedValue
@@ -21,4 +25,15 @@ public class Product {
 
     @Enumerated(EnumType.STRING)
     private Category category; // 카테고리 [디지털, 가구, 의류, 가전, 도서, 스포츠, 취미, 기타]
+
+    @Builder
+    public Product(String productName, int price, String productContent, int stock, Category category) {
+        this.productName = productName;
+        this.price = price;
+        this.productContent = productContent;
+        this.stock = stock;
+        this.category = category;
+    }
+
+
 }
