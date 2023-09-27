@@ -1,9 +1,13 @@
 package com.test.toyproject.api;
 
 import com.test.toyproject.domain.Service.ProductService;
+import com.test.toyproject.domain.dto.ProductSaveRequestDto;
 import com.test.toyproject.domain.item.Product;
-import com.test.toyproject.domain.repository.ProductRepositroy;
+import com.test.toyproject.exception.Constants;
+import com.test.toyproject.exception.CustomException;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,34 +17,37 @@ import java.util.List;
 @RequestMapping("/api/v1")
 public class ProductApiController {
 
-    private final ProductRepositroy productRepositroy;
     private final ProductService productService;
 
     @GetMapping("products")
     public List<Product> findAllProductsV1() {
-        return productRepositroy.findAll();
+        return productService.findAllProducts();
     }
 
     @GetMapping("products/{ProductId}")
     public Product findProductByIdV1(@PathVariable Long ProductId) {
-        return productRepositroy.findById(ProductId).orElseThrow(() -> new IllegalArgumentException("해당 상품이 없습니다. id=" + ProductId));
+        return productService.findByProduct(ProductId);
     }
 
     @PostMapping("products")
-    public Long saveProductV1(@RequestBody Product product) {
-        productRepositroy.save(product);
-        return product.getNo();
+    public Product saveProductV1(@Valid @RequestBody ProductSaveRequestDto productDto) {
+        return productService.saveProduct(productDto);
     }
 
     @PostMapping("products/{productId}")
-    public Long updateProductByIdV1(@PathVariable Long productId, @RequestBody Product product) {
-        productService.updateProduct(productId, product.getProductName(), product.getPrice(), product.getProductContent(), product.getStock());
+    public Long updateProductByIdV1(@PathVariable Long productId, @RequestBody ProductSaveRequestDto productDto) {
+        productService.updateProduct(productId, productDto);
         return productId;
     }
 
     @DeleteMapping("products/{productId}")
     public Long deleteProductByIdV1(@PathVariable Long productId) {
-        productRepositroy.deleteById(productId);
+        productService.deleteProduct(productId);
         return productId;
+    }
+
+    @PostMapping("product/exception")
+    public void exceptionTest() throws CustomException {
+        throw new CustomException(Constants.ExceptionClass.PRODUCT, HttpStatus.BAD_REQUEST, "테스트 에러");
     }
 }
