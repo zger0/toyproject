@@ -45,7 +45,6 @@ public class ProductApiController {
         productService.deleteProduct(productId);
         return productId;
     }
-
     @PostMapping("product/exception")
     public void exceptionTest() throws CustomException {
         throw new CustomException(Constants.ExceptionClass.PRODUCT, HttpStatus.BAD_REQUEST, "테스트 에러");
