@@ -1,15 +1,13 @@
-import React, { useState, useEffect } from "react";
-import getProducts from "../api/getProducts";
-import axios from "axios";
+import React, { useState, useEffect } from 'react';
+import getProducts from '../api/Product';
+import Asdf from './Asdf';
 
 function ProductPage() {
-
   const [products, setProducts] = useState();
 
-  useEffect( () => {
-      getProducts().then((data) => setProducts(data));
-    }, [] 
-  );
+  useEffect(() => {
+    getProducts().then((data) => setProducts(data));
+  }, []);
 
   return (
     <>
@@ -25,7 +23,7 @@ function ProductPage() {
           </tr>
         </thead>
         <tbody>
-          {products && 
+          {products &&
             products.map((product, index) => {
               return (
                 <tr key={index}>
