@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import getProducts from '../api/Product';
-import Asdf from './Asdf';
 
 function ProductPage() {
   const [products, setProducts] = useState();

@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import postProduct from '../api/Product';
+import axios from 'axios';
 
 function asdf () {
 const handleSubmit = async (e) => {
@@ -10,10 +10,14 @@ const handleSubmit = async (e) => {
     const productContent = e.target.productContent.value;
     const stock = e.target.stock.value;
     const category = e.target.category.value;
-    await postProduct(productName, price, productContent, stock, category);
+    await axios.post('http://localhost:8080/api/v1/products', {
+      productName: productName,
+      price: price,
+      productContent: productContent,
+      stock: stock,
+      category: category,
+    });
   };
-
-  
 
   return (
     <>
