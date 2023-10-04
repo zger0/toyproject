@@ -3,8 +3,8 @@ import {
   getProducts,
   postProducts,
   getProductsByName,
-  deleteProduts,
-  updateProduct,
+  deleteProducts,
+  updateProducts,
 } from '../../api/index.js';
 
 export function PostList() {
@@ -17,8 +17,6 @@ export function PostList() {
       setProducts(data);
     });
   }, []);
-
-  useEffect(() => {}, [setEditingProduct]);
 
   const postProduct = async (e) => {
     e.preventDefault();
@@ -33,7 +31,7 @@ export function PostList() {
     setProducts(data);
   };
 
-  const findProduct = async (e) => {
+  const handleFindProduct = async (e) => {
     e.preventDefault();
     const productName = e.target.productName.value;
     const data = await getProductsByName(productName);
@@ -41,7 +39,7 @@ export function PostList() {
   };
 
   const handleDeleteProduct = async (productNo) => {
-    await deleteProduts(productNo);
+    await deleteProducts(productNo);
     setProducts(products.filter((product) => product.no !== productNo));
   };
 
@@ -53,7 +51,7 @@ export function PostList() {
     const updatedStock = e.target.stock.value;
     const updatedCategory = e.target.category.value;
 
-    await updateProduct(
+    await updateProducts(
       editingProduct.no,
       updatedProductName,
       updatedPrice,
@@ -71,17 +69,9 @@ export function PostList() {
   return (
     <>
       <div>상품페이지</div>
-      <form onSubmit={findProduct}>
-        <input
-          className="block  rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-          placeholder="상품검색"
-          name="productName"
-        />
-        <button
-          className="block  rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-          placeholder="0.00"
-          type="submit"
-        >
+      <form onSubmit={handleFindProduct}>
+        <input className="xxxx" placeholder="상품검색" name="productName" />
+        <button className="xxxx" placeholder="0.00" type="submit">
           검색
         </button>
       </form>
@@ -109,10 +99,7 @@ export function PostList() {
                   <td>{product.stock}</td>
                   <td>{product.category}</td>
                   <td>
-                    <button
-                      onClick={() => handleDeleteProduct(product.no)}
-                      className="block rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                    >
+                    <button onClick={() => handleDeleteProduct(product.no)} className="xxxx">
                       삭제
                     </button>
                   </td>
@@ -122,7 +109,7 @@ export function PostList() {
                         if (!editingProduct) setEditingProduct(product);
                         else setEditingProduct(null);
                       }}
-                      className="block rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      className="xxxx"
                     >
                       수정하기
                     </button>
@@ -133,88 +120,35 @@ export function PostList() {
         </tbody>
       </table>
 
-      <button
-        onClick={() => setIsPostForm(!isPostForm)}
-        className="block  rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-        placeholder="0.00"
-      >
+      <button onClick={() => setIsPostForm(!isPostForm)} className="xxxx">
         글쓰기
       </button>
 
       {isPostForm && (
         <form onSubmit={postProduct}>
-          <input
-            className="block rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-            placeholder="productName"
-            name="productName"
-          />
-          <input
-            className="block rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-            placeholder="price"
-            name="price"
-          />
-          <input
-            className="block rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-            placeholder="productContent"
-            name="productContent"
-          />
-          <input
-            className="block  rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-            placeholder="stock"
-            name="stock"
-          />
-          <input
-            className="block  rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-            placeholder="category"
-            name="category"
-          />
-          <button
-            className="block  rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-            placeholder="0.00"
-            type="submit"
-          >
-            Submit
+          <input className="xxxx" placeholder="productName" name="productName" />
+          <input className="xxxx" placeholder="price" name="price" />
+          <input className="xxxx" placeholder="productContent" name="productContent" />
+          <input className="xxxx" placeholder="stock" name="stock" />
+          <input className="xxxx" placeholder="category" name="category" />
+          <button className="xxxx" type="submit">
+            등록
           </button>
         </form>
       )}
 
       {editingProduct && (
         <form onSubmit={handleUpdateProduct}>
+          <input className="xxxx" name="productName" defaultValue={editingProduct.productName} />
+          <input className="xxxx" name="price" defaultValue={editingProduct.price} />
           <input
-            className="block rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-            placeholder="productName"
-            name="productName"
-            defaultValue={editingProduct.productName}
-          />
-          <input
-            className="block rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-            placeholder="price"
-            name="price"
-            defaultValue={editingProduct.price}
-          />
-          <input
-            className="block rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-            placeholder="productContent"
+            className="xxxx"
             name="productContent"
             defaultValue={editingProduct.productContent}
           />
-          <input
-            className="block  rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-            placeholder="stock"
-            name="stock"
-            defaultValue={editingProduct.stock}
-          />
-          <input
-            className="block  rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-            placeholder="category"
-            name="category"
-            defaultValue={editingProduct.category}
-          />
-          <button
-            className="block rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-            placeholder="0.00"
-            type="submit"
-          >
+          <input className="xxxx" name="stock" defaultValue={editingProduct.stock} />
+          <input className="xxxx" name="category" defaultValue={editingProduct.category} />
+          <button className="xxxx" type="submit">
             수정 완료
           </button>
         </form>
