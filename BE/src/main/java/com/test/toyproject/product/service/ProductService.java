@@ -21,10 +21,8 @@ public class ProductService {
         return productRepositroy.save(requestDto.toEntity());
     }
 
-    public Product findByProduct(Long id){
-        return productRepositroy.findById(id).orElseThrow(
-                () -> new IllegalArgumentException("해당 상품이 없습니다.")
-        );
+    public List<Product> findByProductName(String productName){
+        return productRepositroy.findByProductName(productName);
     }
 
     public List<Product> findAllProducts(){
