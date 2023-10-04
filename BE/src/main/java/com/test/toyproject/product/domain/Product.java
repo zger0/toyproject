@@ -1,4 +1,4 @@
-package com.test.toyproject.domain.item;
+package com.test.toyproject.product.domain;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
@@ -22,7 +22,6 @@ public class Product {
     private String productName; // 상품명
 
     @NotNull
-
     private int price; // 가격
 
     @NotNull

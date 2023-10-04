@@ -1,5 +1,6 @@
 package com.test.toyproject.domain.item;
 
+import com.test.toyproject.product.domain.Product;
 import jakarta.persistence.*;
 import lombok.Getter;
 

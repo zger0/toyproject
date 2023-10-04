@@ -1,7 +1,7 @@
 package com.test.toyproject;
 
-import com.test.toyproject.domain.item.Category;
-import com.test.toyproject.domain.item.Product;
+import com.test.toyproject.product.domain.Category;
+import com.test.toyproject.product.domain.Product;
 import jakarta.annotation.PostConstruct;
 import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;

@@ -1,6 +1,6 @@
-package com.test.toyproject.domain.repository;
+package com.test.toyproject.product.domain.repository;
 
-import com.test.toyproject.domain.item.Product;
+import com.test.toyproject.product.domain.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

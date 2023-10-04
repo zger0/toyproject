@@ -1,6 +1,6 @@
-package com.test.toyproject.domain.dto;
+package com.test.toyproject.product.dto.response;
 
-import com.test.toyproject.domain.item.Category;
+import com.test.toyproject.product.domain.Category;
 import lombok.*;
 
 @Getter

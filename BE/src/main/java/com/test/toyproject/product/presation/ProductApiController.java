@@ -1,10 +1,10 @@
-package com.test.toyproject.api;
+package com.test.toyproject.product.presation;
 
-import com.test.toyproject.domain.Service.ProductService;
-import com.test.toyproject.domain.dto.ProductSaveRequestDto;
-import com.test.toyproject.domain.item.Product;
-import com.test.toyproject.exception.Constants;
-import com.test.toyproject.exception.CustomException;
+import com.test.toyproject.product.service.ProductService;
+import com.test.toyproject.product.dto.request.ProductSaveRequestDto;
+import com.test.toyproject.product.domain.Product;
+import com.test.toyproject.golbal.exception.Constants;
+import com.test.toyproject.golbal.exception.CustomException;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

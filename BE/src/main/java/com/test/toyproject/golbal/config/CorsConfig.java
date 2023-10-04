@@ -1,4 +1,4 @@
-package com.test.toyproject.config;
+package com.test.toyproject.golbal.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

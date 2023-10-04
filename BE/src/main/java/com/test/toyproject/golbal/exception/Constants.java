@@ -1,4 +1,4 @@
-package com.test.toyproject.exception;
+package com.test.toyproject.golbal.exception;
 
 public class Constants {
 

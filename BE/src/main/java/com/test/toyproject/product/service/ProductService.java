@@ -1,8 +1,8 @@
-package com.test.toyproject.domain.Service;
+package com.test.toyproject.product.service;
 
-import com.test.toyproject.domain.dto.ProductSaveRequestDto;
-import com.test.toyproject.domain.item.Product;
-import com.test.toyproject.domain.repository.ProductRepositroy;
+import com.test.toyproject.product.dto.request.ProductSaveRequestDto;
+import com.test.toyproject.product.domain.Product;
+import com.test.toyproject.product.domain.repository.ProductRepositroy;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

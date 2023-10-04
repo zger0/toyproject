@@ -1,7 +1,7 @@
-package com.test.toyproject.domain.dto;
+package com.test.toyproject.product.dto.request;
 
-import com.test.toyproject.domain.item.Category;
-import com.test.toyproject.domain.item.Product;
+import com.test.toyproject.product.domain.Category;
+import com.test.toyproject.product.domain.Product;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
