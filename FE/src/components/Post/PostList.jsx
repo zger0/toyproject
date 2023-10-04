@@ -69,9 +69,28 @@ export function PostList() {
   return (
     <>
       <div>상품페이지</div>
+
+      <div className="card w-96 bg-base-100 shadow-xl">
+        <figure>
+          <img src="https://source.unsplash.com/random​" alt="Shoes" />
+        </figure>
+        <div className="card-body">
+          <h2 className="card-title">Shoes!</h2>
+          <p>If a dog chews shoes whose shoes does he choose?</p>
+          <div className="card-actions justify-end">
+            <button className="btn btn-primary">Buy Now</button>
+          </div>
+        </div>
+      </div>
+
       <form onSubmit={handleFindProduct}>
-        <input className="xxxx" placeholder="상품검색" name="productName" />
-        <button className="xxxx" placeholder="0.00" type="submit">
+        <input
+          type="text"
+          placeholder="상품검색"
+          className="input input-bordered w-full max-w-xs"
+          name="productName"
+        />
+        <button className="btn" type="submit">
           검색
         </button>
       </form>

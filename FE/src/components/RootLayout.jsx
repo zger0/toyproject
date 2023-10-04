@@ -1,11 +1,10 @@
-import { Outlet, Link } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
+import Header from './Header';
 
 function RootLayout() {
   return (
     <div>
-      <h1>Logo</h1>
-      <Link to="/">홈</Link>
-      <Link to="/products">상품페이지</Link>
+      <Header />
       <Outlet />
     </div>
   );
