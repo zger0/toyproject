@@ -4,7 +4,7 @@ name: test-deploy
 
 on:
   push:
-    branches: [test-deploy]
+    branches: [main]
     
 permissions:
   contents: read
