@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-async function getProductByName(productName) {
+async function getProductsByName(productName) {
   try {
     const response = await axios.get(`http://localhost:8080/api/v1/products/${productName}`);
     return response.data;
@@ -10,4 +10,4 @@ async function getProductByName(productName) {
   }
 }
 
-export default getProductByName;
+export default getProductsByName;

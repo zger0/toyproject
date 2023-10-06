@@ -10,6 +10,16 @@ spring:
     org.hibernate.SQL: debug
 #    org.hibernate.jdbc.bind : trace
 
+
+  #  datasource:
+  #      url: jdbc:mysql://localhost:3306/mydatabase?useSSL=false&serverTimezone=UTC
+  #      username: myuser
+  #      password: secret
+  #      driver-class-name: com.mysql.cj.jdbc.Driver
+  #
+
+
+
   security:
     user:
       name: user
