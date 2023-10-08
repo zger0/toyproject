@@ -2,7 +2,7 @@ import axios from 'axios';
 
 async function postProducts(productName, price, productContent, stock, category) {
   try {
-    const response = await axios.post('http://localhost:8080/api/v1/products', {
+    const response = await axios.post(`${process.env.REACT_APP_SERVER}/api/v1/products`, {
       productName: productName,
       price: price,
       productContent: productContent,

@@ -2,7 +2,7 @@ import axios from 'axios';
 
 async function getProducts() {
   try {
-    const response = await axios.get('http://localhost:8080/api/v1/products');
+    const response = await axios.get(`${process.env.REACT_APP_SERVER}/api/v1/products`);
     return response.data;
   } catch (error) {
     console.error('Error fetching data:', error);
