@@ -27,6 +27,9 @@ public class MemberService {
 
     // 회원 저장
     public Member saveMember(Member member){
+        System.out.println("member = " + member);
+        System.out.println("member.getMemberId() = " + member.getMemberId());
+        System.out.println("member.getMemberName() = " + member.getMemberName());
         return memberRepository.save(member);
     }
 
