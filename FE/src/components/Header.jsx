@@ -31,6 +31,12 @@ export default function Header() {
             <li>
               <Link to="/products">Products</Link>
             </li>
+            <li>
+              <Link to="/memberInsertPage">회원가입</Link>
+            </li>
+            <li>
+              <Link to="/members">회원목록</Link>
+            </li>
           </ul>
         </div>
       </div>
